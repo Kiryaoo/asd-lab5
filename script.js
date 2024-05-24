@@ -313,7 +313,7 @@ function startBFS() {
 
 function startDFS() {
     clearGraph();
-    edgeColor = 'green';
+    edgeColor = 'purple';
     const visited = new Array(numTops).fill(false);
     const stack = [0];
     visited[0] = true;
