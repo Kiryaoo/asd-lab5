@@ -6,7 +6,7 @@ const n3 = parseInt(variantString[2]);
 const n4 = parseInt(variantString[3]);
 
 const numTops = n3 + 10;
-const coefficient = 1 - n3 * 0.01 - n4 * 0.005 - 0.05;
+const coefficient = 1 - n3 * 0.01 - n4 * 0.005 - 0.15;
 
 let matrixDirected = [];
 
