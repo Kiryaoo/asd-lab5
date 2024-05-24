@@ -63,12 +63,12 @@ function drawCircleArrow(x, y, num, radius) {
 
     ctxArrow.fillText(num, x, y);
 }
-function transformCoordinateAreaArrow(ctx) {
-    ctx.translate(width / 2, height / 1.25);
+function transformCoordinateAreaArrow() {
+    ctxArrow.translate(width / 2, height / 1.25);
 }
 transformCoordinateAreaArrow(ctxArrow);
 
-function createVertexArrow(ctx) {
+function createVertexArrow() {
     const lengthABArrow = Math.sqrt(((-200 - 200) ** 2) + (0 ** 2));
     const lengthBCArrow = Math.sqrt(((200) ** 2) + (0 - (-400)) ** 2);
     const lengthACArrow = lengthBCArrow;
