@@ -30,7 +30,6 @@ const arrOfThreeNodesArrow=[
 ];
 
 const canvasArrow = document.getElementById('graphCanvasWithArrows');
-const canvasDFS=document.getElementById('graphDFS')
 const ctxArrow = canvasArrow.getContext('2d');
 const ctxDFS = canvasArrow.getContext('2d');
 ctxArrow.strokeStyle='black';
@@ -66,7 +65,7 @@ function drawCircleArrow(x, y, num, radius) {
 function transformCoordinateAreaArrow() {
     ctxArrow.translate(width / 2, height / 1.25);
 }
-transformCoordinateAreaArrow(ctxArrow);
+transformCoordinateAreaArrow();
 
 function createVertexArrow() {
     const lengthABArrow = Math.sqrt(((-200 - 200) ** 2) + (0 ** 2));
@@ -111,7 +110,7 @@ function createVertexArrow() {
 }
 
 createVertexArrow(ctxArrow);
-function drawEdgesArrow(ctx) {
+function drawEdgesArrow() {
     for (let i = 0; i < 11; i++) {
         for (let j = i; j < 11; j++) {
             if (matrixDirected[i][j] === 1 && i===j) {
@@ -289,12 +288,14 @@ function startBFS() {
     edgeColor = 'blue';
     const visited = new Array(numTops).fill(false);
     const queue = [0];
+    const queueStates = [];
     visited[0] = true;
 
     const bfsInterval = setInterval(() => {
         if (queue.length === 0) {
             clearInterval(bfsInterval);
             console.log("BFS Visited Nodes:", bfsVisitedNodes);
+            console.log("All Queue States:", queueStates);
             return;
         }
         const current = queue.shift();
@@ -306,9 +307,9 @@ function startBFS() {
                 visited[i] = true;
             }
         }
+        queueStates.push([...queue]);
     }, 1000);
 }
-
 
 
 function startDFS() {
@@ -316,12 +317,14 @@ function startDFS() {
     edgeColor = 'purple';
     const visited = new Array(numTops).fill(false);
     const stack = [0];
+    const stackStates = [];
     visited[0] = true;
 
     const dfsInterval = setInterval(() => {
         if (stack.length === 0) {
             clearInterval(dfsInterval);
             console.log("DFS Visited Nodes:", dfsVisitedNodes);
+            console.log("All Stack States:", stackStates);
             return;
         }
         const current = stack.pop();
@@ -333,5 +336,6 @@ function startDFS() {
                 visited[i] = true;
             }
         }
-    }, 1000);
+        stackStates.push([...stack]);
+    }, 3000);
 }
