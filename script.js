@@ -337,5 +337,5 @@ function startDFS() {
             }
         }
         stackStates.push([...stack]);
-    }, 3000);
+    }, 1000);
 }
